@@ -1,44 +1,16 @@
 # checksumerror.io
 
-Static one-page site for Checksum Error. Plain HTML and CSS, no build step. Hosted on GitHub Pages.
+Checksum Error’s coming-soon page. Static HTML and CSS with local fonts and images. Serve this directory as the web root.
 
-## Files
-| File | What it is |
-|---|---|
-| `index.html` | The whole site (CSS inline, ~20 KB) |
-| `404.html` | Not-found page |
-| `CNAME` | Tells GitHub Pages the custom domain is `checksumerror.io` |
-| `.nojekyll` | Stops GitHub Pages running Jekyll on the files |
-| `favicon.svg`, `apple-touch-icon.png` | Browser and home-screen icons |
-| `og.png` | 1200x630 link-preview image (Instagram bio, iMessage, Slack, X) |
-| `robots.txt`, `sitemap.xml` | For search engines |
+## Coming-soon launch
 
-## Placeholders to replace
-Search the repo for `REPLACE_ME`. Every one must be replaced before you share the site.
+- [ ] Confirm the brand’s Instagram account. In `index.html`, replace the homepage link marked `REPLACE_ME_INSTAGRAM` with the verified profile URL and remove the pending note. The planned handle is `@checksumerror`.
+- [ ] Review the five previews. The Ship It preview omits the tool name flagged for review in the listing draft. The approved print wording goes at `REPLACE_ME_SHIP_IT_ART`. Confirm the public privacy and operator details with your adviser using the actual hosting setup.
+- [ ] In Cloudflare **Workers & Pages**, create or select the Pages project for [Pl8ypus/checksumerror.io](https://github.com/Pl8ypus/checksumerror.io). Set production branch to `main`, framework preset to **None**, leave the build command and root directory blank, and set the output directory to `.`. This repo has `index.html` at its root. Review the files and then commit and push to the production branch. [Cloudflare Git integration guide](https://developers.cloudflare.com/pages/get-started/git-integration/)
+- [ ] In **Pages > Custom domains**, add `checksumerror.io`. If the apex domain is new to Cloudflare DNS, add the zone and use its assigned nameservers at the registrar. Let Pages create the DNS record and wait for the domain and certificate to become active. [Cloudflare custom domains guide](https://developers.cloudflare.com/pages/configuration/custom-domains/)
+- [ ] Check the production deployment and `https://checksumerror.io/` on a phone. Verify the Instagram link, social card, HTTP 404 for a missing path, `robots.txt`, and `sitemap.xml`. Check for unexpected cookies or requests, including any injected by hosting settings.
 
-| Placeholder | Where | Replace with |
-|---|---|---|
-| `REPLACE_ME_ETSY_SHOP` | hero button, footer, JSON-LD | Your Etsy shop name as in `etsy.com/shop/<name>` |
-| `REPLACE_ME_01` … `REPLACE_ME_05` | the 5 "buy on etsy" buttons | Each listing's number from `etsy.com/listing/<number>/...` (01 Works On My Machine, 02 Sudo Make Coffee, 03 Just One More Prompt, 04 Ship It, 05 Human In The Loop) |
-| `REPLACE_ME_INSTAGRAM` | Instagram button, footer, JSON-LD | Your Instagram handle. The heading also says `@checksumerror` (a guess): change it if the handle differs |
-| `REPLACE_ME_EMAIL_FORM_ACTION` | signup form `action` | Your email provider's form endpoint (Buttondown, Mailchimp, Kit, etc.). Until then the form shows "signup is not open yet" and sends nothing |
-| `REPLACE_ME_CONTACT_EMAIL` | footer "contact" link | A public contact address, e.g. hello@checksumerror.io |
+## After the preview
 
-The six Instagram tiles are empty frames. Swap them for real post images once the account has posts, or delete that grid.
-
-Prices ($34.99 tees, $62.99 hoodies) come from the launch-kit listings. If the pricing agent changes Etsy prices, update them here too.
-
-## Going live on GitHub Pages
-1. Put these files in the root of the `checksumerror.io` repo (or create it: github.com/new, name `checksumerror.io`). Commit and push to `main`.
-2. Repo **Settings > Pages**: Source "Deploy from a branch", branch `main`, folder `/ (root)`. Save.
-3. Same page, **Custom domain**: `checksumerror.io` (the CNAME file already says this). Save.
-4. At your domain registrar's DNS settings, add:
-   - Four `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - Four `AAAA` records for `@` (optional, IPv6): `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - One `CNAME` record for `www` pointing to `pl8ypus.github.io`
-   - Remove any other `A`/`AAAA`/`ALIAS` record on `@` (registrar parking pages).
-5. Wait for DNS (minutes to a few hours), then tick **Enforce HTTPS** in Settings > Pages once it is clickable.
-6. Recommended: verify the domain under your GitHub account (**Settings > Pages > Add a domain**) so no one else can claim it on Pages.
-7. Check the link preview at https://www.opengraph.xyz/ after it is live.
-
-Note: GitHub Pages on a **private** repo needs a paid GitHub plan (Pro). On the free plan, make the repo public.
+- [ ] `REPLACE_ME_ETSY_LINKS` marks where to add purchase links after the shop and listings are live. Prices belong on Etsy.
+- [ ] `REPLACE_ME_EMAIL_SIGNUP` marks the disabled preview. Before collecting addresses, confirm the controller and processor details, publish and link the reviewed privacy policy, add signup consent wording, and configure the provider’s double opt-in and unsubscribe. Test a signup and an unsubscribe using a controlled email address.
